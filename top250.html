@@ -1,0 +1,33 @@
+
+<body>
+{#内容实现#}
+<form method="post">
+    <font size="5" color="blue" >输入要查找的电影名：</font><input type="text" name="m_n">
+    <input type="submit" value="搜索">
+</form>
+
+<ul>
+    {% for i in range((pag-1)*25,pag*25) %}
+        <li>{{i+1}}:{{m_mes[i]}}</li>
+        <p>--------------------------------------------------------------------------------------------------------------------</p>
+    {% endfor %}
+</ul>
+
+
+
+{#分页#}
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ul class="pagination">
+	<li><a href="http://127.0.0.1:5000/top250/list/{{pag-1}}">&laquo;</a></li>
+    {% for x in range(1,11) %}
+    <li><a href="http://127.0.0.1:5000/top250/list/{{x}}">{{x}}</a></li>
+    {% endfor %}
+	<li><a href="http://127.0.0.1:5000/top250/list/{{pag+1}}">&raquo;</a></li>
+</ul>
+
+</body>
+</html>
